@@ -4,7 +4,9 @@
   "description": "A service to provide downloadable Images to SVGs",
   "main": "index.js",
   "scripts": {
-    "start": "node_modules/nodemon/bin/nodemon.js --harmony ./bin/api",
+    "dev": "node_modules/nodemon/bin/nodemon.js --harmony --exec npm start",
+    "prestart": "node_modules/eslint/bin/eslint.js -c ./.eslintrc .",
+    "start": "node ./bin/api",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,15 +23,23 @@
   "dependencies": {
     "co": "^4.6.0",
     "co-body": "^4.2.0",
+    "commander": "^2.9.0",
+    "debug": "^2.2.0",
     "koa": "^1.2.1",
+    "koa-compress": "^1.0.9",
     "koa-cors": "0.0.16",
     "koa-jsonp": "^2.0.2",
     "koa-logger": "^1.3.0",
     "koa-resource-router": "^0.4.0",
+    "koa-response-time": "^1.0.2",
     "koa-router": "^5.4.0"
   },
   "devDependencies": {
-    "debug": "^2.2.0",
+    "eslint": "^3.3.1",
+    "eslint-config-airbnb": "^10.0.1",
+    "eslint-plugin-import": "^1.13.0",
+    "eslint-plugin-jsx-a11y": "^2.1.0",
+    "eslint-plugin-react": "^6.1.1",
     "nodemon": "^1.10.0"
   }
 }
