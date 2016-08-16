@@ -1,0 +1,24 @@
+#!/usr/bin/env node
+
+/**
+ * This file assembles the api and executes it
+ */
+
+// Deps
+const program = require('commander');
+const api = require('..');
+const debug = require('debug')('bin');
+
+// Options
+program
+  .option('-H, --host <host>', 'specify the host [0.0.0.0]', '0.0.0.0')
+  .option('-p, --port <port>', 'specify the port [4000]', '4000')
+  .option('-b, --backlog <size>', 'specify the backlog size [511]', '511')
+  .parse(process.argv);
+
+// Create App
+let app = api({});
+
+// Listen and config
+app.listen(program.port, program.host, ~~program.backlog);
+debug(`Listening on ${program.host}:${program.port}`);
