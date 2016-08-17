@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "node_modules/nodemon/bin/nodemon.js --harmony --exec npm start",
     "prestart": "node_modules/eslint/bin/eslint.js -c ./.eslintrc .",
-    "start": "node ./bin/api",
+    "start": "DEBUG=* node ./bin/api",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

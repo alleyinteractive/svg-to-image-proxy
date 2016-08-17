@@ -1,0 +1,7 @@
+{
+	"name": "png",
+	"description": "convert svg to png",
+	"routes": {
+		"POST /png": "convertToPng"
+	}
+}

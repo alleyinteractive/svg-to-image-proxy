@@ -51,7 +51,7 @@
     "yoda": [2, "always"],
     "object-curly-spacing": [2, "always"],
     "array-bracket-spacing": [2, "never"],
-    "space-unary-ops": [2, {"words": true, "nonwords": true}],
+    "space-unary-ops": [2, {"words": true, "nonwords": false}],
     "keyword-spacing": ["error", {"after": true}],
     "space-before-blocks": [2, "always"],
     "space-in-parens": [2, "never"],
@@ -59,6 +59,7 @@
     "no-confusing-arrow": ["error", {"allowParens": true}], // See eslint config for reasons
     "no-constant-condition": ["error"],
     "arrow-parens": ["error", "always"],
-    "operator-linebreak": ["error", "after"]
+    "operator-linebreak": ["error", "after"],
+    "generator-star-spacing": ["error", {"before": false, "after": true}]
   }
 }

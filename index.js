@@ -3,11 +3,15 @@
  */
 
 // Deps
-const responseTime = require('koa-response-time');
+const koa = require('koa');
+const path = require('path');
+// Koa Deps
+const cors = require('koa-cors');
 const compress = require('koa-compress');
 const logger = require('koa-logger');
-const cors = require('koa-cors');
-const koa = require('koa');
+const responseTime = require('koa-response-time');
+// Other Deps
+const load = require('./lib/load');
 
 // Environment
 const env = process.env.NODE_ENV || 'development';
@@ -39,8 +43,12 @@ function api() {
   // compression
   app.use(compress());
 
+  // routing
+  const routes = load(path.join(__dirname, '/api'));
+
   // boot
-  // load(app, __dirname + '/api');
+  app.use(routes.routes());
+  app.use(routes.allowedMethods());
 
   return app;
 }
